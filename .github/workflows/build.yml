@@ -1,0 +1,61 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+
+# This module depends on the chassis, which is embedded at build time and
+# published to no Maven repository, so a clean runner has to build it from
+# source first. Pin this to a release tag when cpc-core is released.
+env:
+  OC3D_CORE_REPO: Jay2owe/oc3d-core
+  OC3D_CORE_REF: master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out cpc-core
+        uses: actions/checkout@v4
+        with:
+          path: cpc-core
+
+      - name: Check out oc3d-core
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.OC3D_CORE_REPO }}
+          ref: ${{ env.OC3D_CORE_REF }}
+          path: oc3d-core
+
+      # Java 21 builds it; the bytecode target stays at 8, set by pom-scijava.
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+
+      # The chassis runs its own suite here rather than being skipped, so a
+      # broken chassis is reported as a broken chassis and not as a cpc-core
+      # failure.
+      - name: Build and install oc3d-core
+        run: mvn --batch-mode --no-transfer-progress -f oc3d-core/pom.xml clean install
+
+      - name: Build and test
+        working-directory: cpc-core
+        run: mvn --batch-mode --no-transfer-progress clean verify
+
+      # This engine must run headless: no dialog, no Swing, no IJ.error. It
+      # throws, and the plugin embedding it decides how to present the failure.
+      # EmbeddabilityTest asserts the rest of what makes this module embeddable;
+      # this covers the one property a compiler will never complain about.
+      - name: Check it stays headless
+        working-directory: cpc-core
+        run: |
+          if grep -rn --include=*.java \
+               -e '^\s*import javax\.swing' -e 'GenericDialog' \
+               -e 'IJ\.error(' -e 'System\.exit(' \
+               src/main/java; then
+            echo "FAIL: this core must run headless and must not present errors."
+            exit 1
+          fi
+          echo "OK: headless."
