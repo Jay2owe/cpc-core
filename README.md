@@ -155,6 +155,29 @@ names that do not begin with a relocated package.
 BSD-3-Clause. Links `net.imagej:ij` only, via `oc3d-core`. Embedding it adds no
 obligation to any consumer.
 
+## Citation
+
+This module is archived on Zenodo so that plugins which compile it in can be
+rebuilt from their own archives alone, without depending on GitHub staying
+reachable.
+
+| | DOI |
+| --- | --- |
+| Concept (always resolves to the latest release) | [`10.5281/zenodo.21822703`](https://doi.org/10.5281/zenodo.21822703) |
+| v0.1.0 | [`10.5281/zenodo.21822704`](https://doi.org/10.5281/zenodo.21822704) |
+
+Rebuilding also needs `oc3d-core` 0.1.0
+([`10.5281/zenodo.21822702`](https://doi.org/10.5281/zenodo.21822702)), the only
+dependency other than `net.imagej:ij`.
+
+Cite the **version** DOI when reproducibility is the point — the concept DOI
+follows this module forward to releases a given plugin was never built against.
+
+Most users should not cite this directly. It is a build-time library that is
+never shipped as a jar and never appears on an update site; cite the plugin
+that embeds it. CPC 1.5.0 embeds v0.1.0
+([`10.5281/zenodo.21812272`](https://doi.org/10.5281/zenodo.21812272)).
+
 ## Ship gate
 
 `../oc3d-core/EQUIVALENCE_HARNESS.md`, run from CPC —
