@@ -5,8 +5,13 @@ The Centre-Particle Coincidence engine, as an embeddable module.
 **Status:** built. 35 tests green. Shaded into CPC 1.4.0+ and verified on a bare
 classpath.
 **Pattern:** `../PLUGIN_CORE_PATTERN.md`
-**Depends on:** `oc3d-core`
+**Depends on:** `oc3d-core` 0.2.0
 **Never shipped as a jar.**
+
+**0.2.0 is a chassis bump only.** `src/main` is byte-identical to 0.1.0 — the
+release exists so consumers can hold one chassis version rather than two. This
+engine reads centroids and label semantics and touches none of the shape
+features 0.2.0 of the chassis changed, so no coincidence number moves.
 
 ---
 
@@ -161,14 +166,15 @@ This module is archived on Zenodo so that plugins which compile it in can be
 rebuilt from their own archives alone, without depending on GitHub staying
 reachable.
 
-| | DOI |
-| --- | --- |
-| Concept (always resolves to the latest release) | [`10.5281/zenodo.21822703`](https://doi.org/10.5281/zenodo.21822703) |
-| v0.1.0 | [`10.5281/zenodo.21822704`](https://doi.org/10.5281/zenodo.21822704) |
+| | DOI | Built against |
+| --- | --- | --- |
+| Concept (always resolves to the latest release) | [`10.5281/zenodo.21822703`](https://doi.org/10.5281/zenodo.21822703) | — |
+| v0.1.0 | [`10.5281/zenodo.21822704`](https://doi.org/10.5281/zenodo.21822704) | `oc3d-core` 0.1.0 ([`10.5281/zenodo.21822702`](https://doi.org/10.5281/zenodo.21822702)) |
+| v0.2.0 | *pending — minted when the GitHub release is cut* | `oc3d-core` 0.2.0 ([`10.5281/zenodo.21823678`](https://doi.org/10.5281/zenodo.21823678)) |
 
-Rebuilding also needs `oc3d-core` 0.1.0
-([`10.5281/zenodo.21822702`](https://doi.org/10.5281/zenodo.21822702)), the only
-dependency other than `net.imagej:ij`.
+`oc3d-core` is the only dependency other than `net.imagej:ij`, and rebuilding a
+given version of this module needs the chassis version in the last column —
+they move together, never independently.
 
 Cite the **version** DOI when reproducibility is the point — the concept DOI
 follows this module forward to releases a given plugin was never built against.

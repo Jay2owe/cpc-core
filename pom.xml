@@ -21,7 +21,7 @@
 
 	<groupId>io.github.jay2owe</groupId>
 	<artifactId>cpc-core</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<version>0.2.0</version>
 
 	<name>cpc-core</name>
 	<description>Centre-Particle Coincidence as an embeddable engine: is an object's centroid inside an object in another channel? Returns result models, never ImageJ tables, and runs headless. Shaded into each consuming plugin under a private package name; never shipped to users as a jar.</description>
@@ -121,7 +121,7 @@
 		<dependency>
 			<groupId>io.github.jay2owe</groupId>
 			<artifactId>oc3d-core</artifactId>
-			<version>0.1.0</version>
+			<version>0.2.0</version>
 		</dependency>
 
 		<dependency>

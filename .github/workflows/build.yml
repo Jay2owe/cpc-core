@@ -9,13 +9,13 @@ on:
 # source first.
 #
 # The ref is the release tag, not master, and must match the version this
-# module's pom declares. oc3d-core's master is already 0.2.0-SNAPSHOT while
-# this module depends on 0.1.0, so building master here produces an artifact
-# nothing asks for and the build fails on a missing dependency. Bump both
-# together or not at all.
+# module's pom declares. Building master here would produce whatever version
+# the chassis has opened for development, which is an artifact nothing asks
+# for, and the build fails on a missing dependency. Bump both together or not
+# at all.
 env:
   OC3D_CORE_REPO: Jay2owe/oc3d-core
-  OC3D_CORE_REF: v0.1.0
+  OC3D_CORE_REF: v0.2.0
 
 jobs:
   test:
