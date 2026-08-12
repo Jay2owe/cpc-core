@@ -157,8 +157,9 @@ names that do not begin with a relocated package.
 
 ## Licence
 
-BSD-3-Clause. Links `net.imagej:ij` only, via `oc3d-core`. Embedding it adds no
-obligation to any consumer.
+BSD-3-Clause — see `LICENSE`, with attribution in `NOTICE`. Links
+`net.imagej:ij` only, via `oc3d-core`. Embedding it adds no obligation to any
+consumer.
 
 ## Citation
 
