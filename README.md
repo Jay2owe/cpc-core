@@ -1,5 +1,7 @@
 # cpc-core
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21822703.svg)](https://doi.org/10.5281/zenodo.21822703)
+
 The Centre-Particle Coincidence engine, as an embeddable module.
 
 **Status:** built. 35 tests green. Shaded into CPC 1.4.0+ and verified on a bare
@@ -171,7 +173,11 @@ reachable.
 | --- | --- | --- |
 | Concept (always resolves to the latest release) | [`10.5281/zenodo.21822703`](https://doi.org/10.5281/zenodo.21822703) | — |
 | v0.1.0 | [`10.5281/zenodo.21822704`](https://doi.org/10.5281/zenodo.21822704) | `oc3d-core` 0.1.0 ([`10.5281/zenodo.21822702`](https://doi.org/10.5281/zenodo.21822702)) |
-| v0.2.0 | *pending — minted when the GitHub release is cut* | `oc3d-core` 0.2.0 ([`10.5281/zenodo.21823678`](https://doi.org/10.5281/zenodo.21823678)) |
+| v0.2.0 | [`10.5281/zenodo.21933269`](https://doi.org/10.5281/zenodo.21933269) | `oc3d-core` 0.2.0 ([`10.5281/zenodo.21823678`](https://doi.org/10.5281/zenodo.21823678)) |
+
+> Malcolm, J. (2026). *cpc-core: Embeddable centroid-in-object coincidence
+> engine* (Version 0.2.0) [Computer software]. Zenodo.
+> https://doi.org/10.5281/zenodo.21933269
 
 `oc3d-core` is the only dependency other than `net.imagej:ij`, and rebuilding a
 given version of this module needs the chassis version in the last column —
