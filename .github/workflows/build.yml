@@ -22,19 +22,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out cpc-core
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           path: cpc-core
 
       - name: Check out oc3d-core
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: ${{ env.OC3D_CORE_REPO }}
           ref: ${{ env.OC3D_CORE_REF }}
           path: oc3d-core
 
       # Java 21 builds it; the bytecode target stays at 8, set by pom-scijava.
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: "21"
